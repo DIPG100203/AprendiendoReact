@@ -1,11 +1,13 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import confetti from 'canvas-confetti'
+
+
 import { Square } from './components/Square'
-import { TURNS} from './constants'
+import { TURNS } from './constants'
 import { checkWinnerFrom, checkEndGame } from './logic/board'
 import { WinnerModal } from './components/winnerModal'
-import { saveGameToStorage, resetGameStorage } from './storage'
+import { saveGameToStorage, resetGameStorage } from './logic/storage'
 import './App.css'
 
 // declaro las cuadriculas de la tabla 
@@ -71,6 +73,10 @@ function App() {
 
     resetGameStorage()
   }
+
+  useEffect(() => {
+    console.log('useEffect')
+  })
 
   return(
     <main className='board'>
